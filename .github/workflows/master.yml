@@ -10,7 +10,7 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: src/test.sh
+          local: /Users/trangtruong/Desktop/github-action/src/test.sh
           remote: scp/src/test.sh
           command: ./src/test.sh
           host: ${{ secrets.F3AQA2_HOST }}
