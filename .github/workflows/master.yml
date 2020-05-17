@@ -17,4 +17,4 @@ jobs:
           username: tiger
           key: ${{ secrets.F3AQA2_SSH_KEY }}
           script: |
-            echo $HOME
+            ./src/test.sh
