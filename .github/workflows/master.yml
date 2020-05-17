@@ -10,5 +10,4 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run sh script
       run: |
-        chmod +x ./src/test.sh
         ./src/test.sh
