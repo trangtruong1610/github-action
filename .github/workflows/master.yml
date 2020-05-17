@@ -9,5 +9,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run sh script
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        privateKey: ${{ secrets.PRIVATE_KEY}}
       run: |
         ./src/test.sh
