@@ -8,19 +8,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+
       - name: Copy file via scp
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.F3AQA2_HOST }}
-          username: tiger
-          key: ${{ secrets.F3AQA2_SSH_KEY }}
-          source: "./src/test.sh"
-          target: "test"
+          # ssh connect
+          username : tiger
+          host     : ${{ secrets.F3AQA2_HOST }}
+          key      : ${{ secrets.F3AQA2_SSH_KEY }}
+          # file to copy
+          source : ./src/test.sh
+          target : /tmp/github-action.test.d/
+
       - name: Executing remote command
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.F3AQA2_HOST }}
-          username: tiger
-          key: ${{ secrets.F3AQA2_SSH_KEY }}
-          script: |
-            test/src/test.sh
+          # ssh connect
+          username : tiger
+          host     : ${{ secrets.F3AQA2_HOST }}
+          key      : ${{ secrets.F3AQA2_SSH_KEY }}
+          # script to run
+          script: /tmp/github-action.test.d/src/test.sh
