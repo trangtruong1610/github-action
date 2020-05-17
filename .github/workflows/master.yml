@@ -16,3 +16,5 @@ jobs:
           host: ${{ secrets.F3AQA2_HOST }}
           username: tiger
           key: ${{ secrets.F3AQA2_SSH_KEY }}
+          script: |
+            echo $HOME
