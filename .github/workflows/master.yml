@@ -10,7 +10,9 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
-          command: echo $HOME
+          local: ./src/test.sh
+          remote: scp/src/test.sh
+          command: ./src/test.sh
           host: ${{ secrets.F3AQA2_HOST }}
           username: tiger
           key: ${{ secrets.F3AQA2_SSH_KEY }}
