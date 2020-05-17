@@ -17,9 +17,9 @@ jobs:
           target: "test"
 
       - name: Executing remote  command
-          uses: appleboy/ssh-action@master
-          with:
-            host: ${{ secrets.F3AQA2_HOST }}
-            USERNAME: tiger
-            KEY: ${{ secrets.F3AQA2_SSH_KEY }}
-            script: test/test.sh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.F3AQA2_HOST }}
+          username: tiger
+          key: ${{ secrets.F3AQA2_SSH_KEY }}
+          script: test/test.sh
