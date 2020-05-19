@@ -13,7 +13,7 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           # ssh connect
-          username : tiger
+          username : namgivu
           host     : ${{ secrets.REMOTE_HOST }}
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # file to copy
@@ -24,7 +24,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           # ssh connect
-          username : tiger
+          username : namgivu
           host     : ${{ secrets.REMOTE_HOST }}
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # script to run
