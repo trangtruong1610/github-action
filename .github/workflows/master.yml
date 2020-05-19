@@ -14,8 +14,8 @@ jobs:
         with:
           # ssh connect
           username : tiger
-          host     : ${{ secrets.F3AQA2_HOST }}
-          key      : ${{ secrets.F3AQA2_SSH_KEY }}
+          host     : ${{ secrets.REMOTE_HOST }}
+          key      : ${{ secrets.REMOTE_SSH_KEY }}
           # file to copy
           source : ./src/test.sh
           target : /tmp/github-action.test.d/
@@ -25,7 +25,7 @@ jobs:
         with:
           # ssh connect
           username : tiger
-          host     : ${{ secrets.F3AQA2_HOST }}
-          key      : ${{ secrets.F3AQA2_SSH_KEY }}
+          host     : ${{ secrets.REMOTE_HOST }}
+          key      : ${{ secrets.REMOTE_SSH_KEY }}
           # script to run
           script: /tmp/github-action.test.d/src/test.sh
