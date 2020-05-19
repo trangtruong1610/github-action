@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: set env
+        - run : |
+            - echo "::set-env name=REMOTE_DIR::/tmp/github-action.test.d"
 
       - name: Copy file via scp
         uses: appleboy/scp-action@master
@@ -18,7 +21,7 @@ jobs:
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # file to copy
           source : ./src/test.sh
-          target : /tmp/github-action.test.d/
+          target : ${{ secrets.REMOTE_DIR }}
 
       - name: Executing remote command
         uses: appleboy/ssh-action@master
@@ -28,4 +31,4 @@ jobs:
           host     : ${{ secrets.REMOTE_HOST }}
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # script to run
-          script: /tmp/github-action.test.d/src/test.sh
+          script: ${{ secrets.REMOTE_DIR }}/src/test.sh
