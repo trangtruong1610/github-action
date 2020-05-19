@@ -21,7 +21,7 @@ jobs:
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # file to copy
           source : ./src/test.sh
-          target : ${{ secrets.REMOTE_DIR }}
+          target : ${{ env.REMOTE_DIR }}
 
       - name: Executing remote command
         uses: appleboy/ssh-action@master
@@ -31,4 +31,4 @@ jobs:
           host     : ${{ secrets.REMOTE_HOST }}
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # script to run
-          script: ${{ secrets.REMOTE_DIR }}/src/test.sh
+          script: ${{ env.REMOTE_DIR }}/src/test.sh
