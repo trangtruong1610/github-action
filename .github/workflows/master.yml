@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: set env
-        - run : |
-            - echo "::set-env name=REMOTE_DIR::/tmp/github-action.test.d"
+          run : |
+            echo "::set-env name=REMOTE_DIR::/tmp/github-action.test.d"
 
       - name: Copy file via scp
         uses: appleboy/scp-action@master
