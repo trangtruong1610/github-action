@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: set env
+        # set env
         run : |
           echo "::set-env name=REMOTE_DIR::/tmp/github-action.test.d"
 
