@@ -38,3 +38,4 @@ jobs:
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_ICON : https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png?size=48
