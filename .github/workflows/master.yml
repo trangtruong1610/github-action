@@ -34,11 +34,7 @@ jobs:
           # script to run
           script: ${{ env.REMOTE_DIR }}/src/test.sh
 
-      - name: Slack notification
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          channel: web-automation
-          status: SUCCESS
-          color: good
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2.0.2
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
