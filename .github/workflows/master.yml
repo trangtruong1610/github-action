@@ -13,6 +13,13 @@ jobs:
         run : |
           echo "::set-env name=REMOTE_DIR::/tmp/github-action.test.d"
 
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2.0.2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_ICON : https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png?size=48
+          SLACK_USERNAME : Github Action
+
       - name: Copy file via scp
         uses: appleboy/scp-action@master
         with:
@@ -34,9 +41,3 @@ jobs:
           # script to run
           script: test.sh
 
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2.0.2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_ICON : https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png?size=48
-          SLACK_USERNAME : Github Action
