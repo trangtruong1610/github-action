@@ -33,3 +33,11 @@ jobs:
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # script to run
           script: ${{ env.REMOTE_DIR }}/src/test.sh
+
+      - uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: app-alerts
+          status: SUCCESS
+          color: good
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
