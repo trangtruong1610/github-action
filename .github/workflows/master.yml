@@ -39,5 +39,6 @@ jobs:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow
         env:
+          #TODO Trang add url on guide how to get value for this SLACK_WEBHOOK_URL
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
