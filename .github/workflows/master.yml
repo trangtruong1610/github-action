@@ -34,22 +34,10 @@ jobs:
           # script to run
           script: ${{ env.REMOTE_DIR }}/src/test.sh
 
-      - name: Notify slack success
-        if: success()
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1
+      - uses: 8398a7/action-slack@v3
         with:
-          channel: web-automation
-          status: SUCCESS
-          color: good
-
-      - name: Notify slack fail
-        if: failure()
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          channel: web-automation
-          status: FAILED
-          color: danger
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
