@@ -32,7 +32,7 @@ jobs:
           host     : ${{ secrets.REMOTE_HOST }}
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # script to run
-          script: ${{ env.REMOTE_DIR }}/src/test.sh
+          script: test.sh
 
       - uses: 8398a7/action-slack@v3
         with:
