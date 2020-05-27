@@ -32,7 +32,8 @@ jobs:
           host     : ${{ secrets.REMOTE_HOST }}
           key      : ${{ secrets.REMOTE_SSH_KEY }}
           # script to run
-          script: test.sh
+          script: ${{ env.REMOTE_DIR }}/src/test.sh
+
       - name: Notify slack success
         if: success()
         env:
