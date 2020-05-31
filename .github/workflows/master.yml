@@ -38,7 +38,7 @@ jobs:
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          fields: repo,commit,message,author,action,eventName,ref,workflow
+          fields: repo,author,commit,message,action,eventName,ref,workflow
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # how to get value for this SLACK_WEBHOOK_URL ref. https://slack.com/intl/en-vn/help/articles/115005265063-Incoming-Webhooks-for-Slack
