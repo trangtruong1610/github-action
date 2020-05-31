@@ -40,6 +40,7 @@ jobs:
           status: ${{ job.status }}
           fields: repo,commit,message,author,action,eventName,ref,workflow
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # how to get value for this SLACK_WEBHOOK_URL ref. https://slack.com/intl/en-vn/help/articles/115005265063-Incoming-Webhooks-for-Slack
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
